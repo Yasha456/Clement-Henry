@@ -1,0 +1,9 @@
+def palindrome (): 
+    
+    mot = input("Ecrire mot ")
+    mot2 = mot[::-1]
+    #permet de retourner la chaine de caractére du mot pour vérifier si c'est un palindrome
+    if mot==mot2:
+        print ("C'est un palindrome")
+    else :
+        print("Ce n'est pas un palindrome")
