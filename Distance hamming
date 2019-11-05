@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Éditeur de Spyder
+
+Ceci est un script temporaire 
+"""
+
+def distance_hamming(mot1,mot2): 
+    distance = 0
+#   variable qui s'incrémente pour déterminer la distance hamming
+    for a,b in zip(mot1,mot2):
+#la fonction zip permet d'itérer la structure de controle pour nos deux listes, mot1 et mot 2
+        if a != b :
+            distance = distance + 1
+    return distance
