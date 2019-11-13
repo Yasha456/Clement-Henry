@@ -1,0 +1,42 @@
+#création de la fonction avec 3 paramètres
+def Poirot(suspect, brin1, brin2):
+	brin1verif = False
+	brin2verif = False
+	i = 0
+	tmp = []
+
+	#tant que brin1verif ou brin2verif sont faux et i est inférieur au nombre d'éléments de suspect moins le nombre d'éléments de brin1
+	while ((not brin1verif or not brin2verif) and i < len(suspect) - len(brin1)):
+
+		tmp = suspect[i:]#supprime les i éléments de la liste
+		tmp = tmp[:-(len(suspect) - len(brin1) - i)] #limite la liste a éléments
+
+        #si tmp = brin 1 et que brin1verif est faux
+		if (brin1 == tmp and brin1verif == False):
+			i += 4 #on incrémente i de 4
+			brin1verif = True #brin1verif devient vrai
+        #si tmp = brin 2 et que brin2verif est faux
+		elif (brin2 == tmp and brin2verif == False):
+			i += 4 #on incrémente i de 4
+			brin2verif = True #brin1verif devient vrai
+		#si brin1verif = brin2verif = True
+		elif (brin1verif == brin2verif == True):
+			return (brin1verif and brin2verif) 
+		else:
+			i += 1
+	return (brin1verif and brin2verif)
+	
+leblanc="CTGCAGGAACTTCTTCTGGAAGTACTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAG"
+rose="CTCCTGATGCTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAD"
+pervenche="AAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGTACTCCGCGCGCCGGGACAGAATGCCADN"
+moutarde="CCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGCADN"
+
+nomcoupable=["rose","moutarde","pervenche","leblanc"]
+listeCoupables=[rose,moutarde,pervenche,leblanc]
+
+premier="CATA"
+deuxieme="ATGC"
+
+
+for i in range (len(listeCoupable)):
+	print(nomcoupable[i]," ",Poirot(listeCoupables[i],premier,deuxieme))
